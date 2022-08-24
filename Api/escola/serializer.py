@@ -31,6 +31,7 @@ class ListaAlunosMatriculadosSerializer(serializers.ModelSerializer):
         model = Matricula
         fields = ['aluno_nome']
 
+#Serializer semelhante ao AlunoSerializer, apenas acrescentado o campo contato na segunda versão
 class AlunoSerializerV2(serializers.ModelSerializer):
     class Meta:
         model = Aluno

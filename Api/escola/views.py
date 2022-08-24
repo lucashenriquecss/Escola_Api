@@ -10,6 +10,8 @@ class AlunosViewSet(viewsets.ModelViewSet):
     queryset = Aluno.objects.all()
     authentication_classes = [BasicAuthentication]
     permission_classes = [IsAuthenticated]
+    #função responsavel por controlar as versoes da API
+    #Estamos utilizando a nova(v2) e a antiga
     def get_serializer_class(self):
         if self.request.version ==  "v2":
            return AlunoSerializerV2

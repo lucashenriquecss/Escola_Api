@@ -7,7 +7,7 @@ class Aluno(models.Model):
     rg = models.CharField(max_length=9)
     cpf = models.CharField(max_length=11)
     data_nascimento = models.DateField()
-    contato = models.CharField(max_length=11, default="")
+    contato = models.CharField(max_length=11, default="")#Adicionado na segunda versão
 
     def __str__(self):
         return self.nome

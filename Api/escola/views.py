@@ -22,14 +22,14 @@ class CursosViewSet(viewsets.ModelViewSet):
     """Exibindo todos os cursos"""
     queryset = Curso.objects.all()
     serializer_class = CursoSerializer
-    
+    http_method_names=['get','post','put','path']
     
 
 class MatriculaViewSet(viewsets.ModelViewSet):
     """Listando todas as matrículas"""
     queryset = Matricula.objects.all()
     serializer_class = MatriculaSerializer
-    
+    http_method_names=['get','post','put','path']#limitando as ações em um viewsets
     
 
 class ListaMatriculasAluno(generics.ListAPIView):

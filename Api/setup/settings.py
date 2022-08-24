@@ -132,5 +132,14 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',
-    ]
+    ], 
+    #LIMITAÇÕES DE REQUISIÇÕES
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.AnonRateThrottle',#limitção para usuarios anonimos(que nao estão logados)
+        
+    ],
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '5/day',#5 requisições para usuarios anonimos(que nao estão logados)
+        
+    }
 }

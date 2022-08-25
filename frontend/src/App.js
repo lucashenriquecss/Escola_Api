@@ -1,13 +1,14 @@
-import logo from './logo.svg';
+
 import './App.css';
 import ListaCursos from './components/listaCursos';
 import Footer from './components/footer';
 function App() {
+  
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>Cursos</h1>
+        <a href='' className='headercursos' to={""}>Cursos</a>
+        <a href='' className='headeralunos' to = {""}>Aluno</a>
       </header>
       <ListaCursos/>
       <Footer/>

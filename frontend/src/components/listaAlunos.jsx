@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class ListaCursos extends Component {
+class ListaAlunos extends Component {
     state = {
         data: [],
         loaded: false
     }
 
     componentDidMount() {
-        fetch("http://localhost:8000/cursos/")
+        fetch("http://localhost:8000/alunos/")
           .then(response => {
             if (response.status > 400) {
             // Código do comportamento em caso de problema na req
@@ -27,12 +27,10 @@ class ListaCursos extends Component {
       render() {
         return (
             <div>
-            {this.state.data.map(curso => {
+            {this.state.data.map(aluno => {
               return (
-                <h2 key={curso.id} className='App-table'>
-                  <a>{curso.codigo_curso}</a>
-                  {curso.descricao}
-                  <a>Nivel:{curso.nivel}</a>
+                <h2 key={aluno.id} className='App-table'>
+                  {aluno.nome}
                 </h2>
               );
             })}
@@ -41,4 +39,4 @@ class ListaCursos extends Component {
       }
     }
 
-export default ListaCursos;
+export default ListaAlunos;

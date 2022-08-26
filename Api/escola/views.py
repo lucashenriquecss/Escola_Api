@@ -1,3 +1,4 @@
+from linecache import cache
 from rest_framework import viewsets, generics
 from escola.serializer import AlunoSerializerV2
 from escola.models import Aluno, Curso, Matricula
@@ -5,6 +6,9 @@ from escola.serializer import AlunoSerializer, CursoSerializer, MatriculaSeriali
 from rest_framework.authentication import BasicAuthentication
 from rest_framework.response import Response
 from rest_framework import status
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import  cache_page
+
 class AlunosViewSet(viewsets.ModelViewSet):
     """Exibindo todos os alunos e alunas"""
     queryset = Aluno.objects.all()
@@ -37,6 +41,12 @@ class MatriculaViewSet(viewsets.ModelViewSet):
     queryset = Matricula.objects.all()
     serializer_class = MatriculaSerializer
     http_method_names=['get','post','put','path']#limitando as ações em um viewsets
+
+    #caching, buscando informações que estão salvas no cache, deixando a api mais performatica
+    @method_decorator(cache_page(20))
+    def dispatch(self, *args, **kwargs):
+        return super(MatriculaViewSet, self).dispatch(*args, **kwargs)
+        
     
 
 class ListaMatriculasAluno(generics.ListAPIView):

@@ -51,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "corsheaders.middleware.CorsMiddleware",
+    'django.middleware.locale.LocaleMiddleware'
     
 ]
 
@@ -156,3 +157,4 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]
+#LOCALE_PATHS = (os.path.join(BASE_DIR, "locale/"))
